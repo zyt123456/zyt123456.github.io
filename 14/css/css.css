@@ -1,0 +1,49 @@
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+body{
+	background-image:url(../img/pexels-photo-411472.jpeg) ;
+	background-repeat: no-repeat;
+	background-size:1800px ;
+}
+.wrapper{
+	max-width: 1200px;
+	margin:auto
+}
+ul{
+	list-style-type: none;
+	padding: 0;
+	position: absolute;
+	padding: 20px;
+	top: 0;
+	right: 0;
+}
+header{
+	margin: 40px 0;
+	position: relative;
+}
+.logo img{
+	width: 120px;
+	height: auto;
+}
+li{
+	float: left;
+	margin: 35px 35px;
+	
+}
+li a{
+  color: deeppink;
+  size:140 ;
+  text-decoration: none;
+  border:1px solid rgba(0,191,255,0);
+  transition: all 0.5s;
+  padding: 20px 30px;
+}
+li a:hover{
+	  border:1px solid rgba(0,191,255,1);
+}
+h2,h3{
+	color: white;
+}
