@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body{
+		margin: 0;
+		padding: 0;
+		background:url(img/1.jpg) ;
+		background-size: cover;
+		}
+		h1{
+		top: -50px;
+		font-size: 4em;
+		text-align: center;
+		color: deepskyblue;
+		}
+		
+		h2{
+		top: -80px;
+		font-size: 2em;
+		text-align: center;
+		color: deeppink;
+		
+		}
+		.test{
+		text-align:center ;
+		}
+		</style>
+		
+		}
+	</head>
+	<body>
+	     <h1 class="title">表姐的图片</h1>
+		<h2 class="test">你选择哪一张！！</h2>
+		<div class="test">
+		
+			<input type="button" value="街拍" />
+			<input type="button" value="维密" />
+			<input type="button" value="走秀" />
+			<input type="button" value="写真" />
+			<input type="button" value="生活照" />
+			<input type="button" value="大片" />
+		</div>
+		<script type="text/javascript">
+			var oBtnList=document.querySelectorAll(".test input");
+ 
+//			
+			for ( var i = 0; i < oBtnList.length; i++ ) {
+				oBtnList[ i ].addEventListener("click",(function(index){
+					return function(e){console.log( '你单击了第' + index +"个按钮" )};
+				}(i+1)));
+			}
+		</script>
+</body>
+</html>
