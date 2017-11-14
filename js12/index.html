@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.even{
+				background-color: deepskyblue;
+				
+			}
+			.odd{
+				background-color: white;
+			}
+			#tab{
+				background-color: pink;
+			}
+		</style>
+	
+	
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+<script> 
+ $(document).ready(function(){ 
+ $("tr:even").addClass("even");
+ $("tr:odd").addClass("odd");
+  $("tr").toggle(
+  	function(){
+  		$(this),addClass("selected");
+  	},func
+  	
+ }
+ 
+
+    function $c(tagname){ 
+    return document.createElement(tagname); 
+    } 
+
+    $(document).ready(function(){ 
+
+     $("#addrow").bind("click",function(){ 
+
+     var tab = $("#tab"); 
+   
+    var tr = $c("tr"); 
+
+    tab.append(tr); 
+ 
+     var td1=$c("td"); 
+
+     td1.innerHTML="05"; 
+
+     tr.appendChild(td1); 
+    var td2=$c("td"); 
+    td2.innerHTML="侄子"; 
+    tr.appendChild(td2); 
+      var td3=$c("td"); 
+    td3.innerHTML="88"; 
+    tr.appendChild(td3); 
+    }); 
+
+     $("#deleterow").bind("click",function(){ 
+
+     var tab = $("#tab tr:eq(0)"); 
+
+    tab.remove(); 
+    }); 
+     }); 
+     </script> 
+    </head> 
+     <body> 
+    <table border='1' id="tab" width="500"> 
+    	<tr>
+    	<th>学号</th>
+    	<th>姓名</th>
+    	<th>成绩</th>
+    	</tr>
+     <tr> 
+    <td>01</td> 
+    <td>冉冉</td> 
+    <td>100</td>
+    </tr> 
+     <tr> 
+    <td>02</td> 
+    <td>嘟嘟</td> 
+    <td>95</td>
+    </tr>
+     <tr> 
+    <td>03</td> 
+    <td>婷婷</td> 
+    <td>59</td>
+    </tr>
+     <tr> 
+    <td>04</td> 
+    <td>彬彬</td> 
+    <td>98</td>
+    </tr>
+    </table> 
+    </br> 
+     <button id="addrow">添加行</button> 
+    <button id="deleterow">删除行</button> 
+</body> 
+</html> 
