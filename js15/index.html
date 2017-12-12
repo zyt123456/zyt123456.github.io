@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				background-color: pink;
+			}
+			.container{
+				width: 100%;
+				min-height: 100%;
+				
+			}
+			button{
+				background-color: #000;
+				color: #fff;
+			}
+			.text{
+				text-align: center;
+				width: 80%;
+				min-height: 600px;
+				margin: 0 auto;
+			}
+			.text h2{
+				text-align: center;
+			}
+			.text p{
+				text-indent: 2em;
+				font-size: 15px;
+			}
+			[data-theme='blue']{
+			
+				background-size: 100%;
+				color: black;
+				border: 4px solid black;
+			}
+			[data-theme='green']{
+				
+				background-size: 100%;
+				color: #fff;
+				border: 4px solid white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<button id="blue">图一</button>
+			<button id="green">图二</button>
+			<div class="text">
+				<h2>飘</h2>
+				<p>她恍如隔世地记起一次与父亲之间关于土地的谈话，当时父亲说土地是世界上唯一值得用去夺取的东西， </p>
+				<p>而她自己竟那样幼稚无知，没有了解其中的意义。</p> 
+				<p>因为它是世界上唯一持久的东西……而对于任何一个爱尔兰血统的人来说，他们所赖以生活的土地就是他们的母亲……它是唯一值得你为之工作、战斗和牺牲的东西。</p> 
+				<p>是的，塔拉是值得人们为之战斗的。她简单而毫无疑问地接受这场战斗。 </p>
+				<p>谁也休想从她手中把塔拉夺走，</p> 
+				<p>谁也休想使她和家里的人外出漂流，去靠亲戚们的施舍过活，</p> 
+				<p>	她要抓住塔拉，哪怕让这里的每个人都累断脊梁，也在所不惜！</p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var oBlue=document.getElementById("blue");
+			var oGreen=document.getElementById("green");
+			var oText=document.querySelector(".text");
+
+			var curTheme=localStorage.getItem("theme");
+			
+			if(curTheme!=null){
+				oText.dataset.theme=curTheme;
+			}
+			localStorage.clear();
+			oBlue.addEventListener("click",setTheme);
+			oGreen.addEventListener("click",setTheme);
+			function setTheme(){
+				var target=event.target;
+				var id=target.id;
+				console.log(id);
+				oText.dataset.theme=id;
+				localStorage.setItem("theme",id);
+			}
+		</script>
+	</body>
+</html>
