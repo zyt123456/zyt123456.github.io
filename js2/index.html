@@ -1,41 +1,70 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="zh">
+
 	<head>
-		<meta charset="utf-8" />
-		<title>换肤</title>
-		<link id="lk" rel="stylesheet" type="text/css" href="css/css.css"/>
-	</head>
-	<body>
-		<a id="a" href="javascript:">春天</a>&nbsp;&nbsp;<a id="b" href="javascript:">夏天</a>
-		<a id="c" href="javascript:">秋天</a>&nbsp;&nbsp;<a id="d" href="javascript:">冬天</a>
-		<h1>乡愁</h1>
-		<p>丽江，云南省辖地级市，位于云南省西北部，市区中心位于东经100°25'，北纬26°86'，总面积2.06万平方公里，北连迪庆藏族自治州，
-			南接大理白族自治州，西邻怒江傈僳族自治州，东与四川凉山彝族自治州和攀枝花市接壤，距昆明市527公里。
-			丽江市位于云贵高原与青藏高原的连接部位，地势西北高而东南低，最高点为玉龙雪山主峰，海拔一般都在2000米以上，属低纬暖温带高原山地季风气候，境内水利资源丰富，
-			动植物种类繁多，为云南省重点林区、中国水电西电东送基地之一。     截至2015年，丽江市辖1个市辖区，4个县。2016年末，全市常住人口128.5万人。
-			2016年，全年完成地区生产总值310.1799亿元，人均地区生产总值24186元。丽江是一个多民族聚居的地方，除汉族外，共有12个世居少数民族，22种少数民族；
-			旅游资源丰富，有旅游风景点104处，有丽江古城、玉龙雪山、虎跳峡、老君山、束河古镇等知名旅游景点，先后被评为中国旅游竞争力百强城市 、
-			中国十大休闲城市  、中国优秀旅游城市 、中国十大魅力城市 等荣誉称号。</p>
-			<script type="text/javascript">
-			  var a=document.getElementById('a');
-			  var b=document.getElementById('b');
-			  var c=document.getElementById('c');
-			  var d=document.getElementById('d');
-			  var lk=document.getElementById('lk');
-			  a.onclick=function(){
-				lk.href="css/css.css";
-				
-			 }
-			  b.onclick=function(){
-				lk.href="css/css1.css";
+		<meta charset="UTF-8">
+		<title>Tabs</title>
+		<style>
+			.clearfix::after {
+				content: "";
+				clear: both;
+				display: block;
 			}
-			  c.onclick=function(){
-			  	lk.href="css/css2.css";
-			  }
-			  d.onclick=function(){
-			  	lk.href="css/css3.css";
-			  }
-			  
-			</script>
+			.tabs .tabItems .item {
+				padding: 10px 30px;
+				float: left;
+				border-radius: 5px 5px 0px 0px;
+				margin: 0;
+				cursor: pointer;
+			}
+			
+			.tabContents .content {
+				width: 580px;
+				min-height: 300px;
+				text-indent: .5em;
+				
+			}
+			
+			.tabs div div:nth-child(1) {
+				background-color: lightgreen;
+			}
+			
+			.tabs div div:nth-child(2) {
+				background-color: deepskyblue;
+			}
+			
+			.tabs div div:nth-child(3) {
+				background-color: pink;
+			}
+		</style>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+
+	<body>
+		<div id="app" class="tabs">
+			<div class="tabItems clearfix">
+				<div class="item" v-for="(item,index) in tabsItems" @click="toggleTabs(index)">{{item}}</div>
+			</div>
+			<div class="tabContents">
+				<div id="news" v-for="(item,index) in tabsContents" class="content" v-show="nowIndex===index">{{item}}</div>
+			</div>
+		</div>
 	</body>
+
 </html>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			tabsItems: ['新闻', '通知','公告'], 
+			tabsContents:['新闻内容!','通知内容！','公告内容！'],
+			nowIndex: 0 
+		},
+		methods: {
+			toggleTabs: function(index) {
+				this.nowIndex = index;
+			}
+		}
+	})
+</script>
